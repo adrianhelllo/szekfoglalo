@@ -13,14 +13,20 @@ def szekek_kiiras(szekek):
             print('🔴', end=' ')
     print()
 
+def helyes_e(szekek, foglalt):
+    if not (1 <= foglalt <= 8):
+        print("Helytelen bevitel. Próbáld újra.")
+        return False
+    elif szekek[foglalt - 1] == 1:
+        print("Ez a szék már foglalt. Próbáld meg más széket foglalni.")
+        return False
+    else:
+        return True
+
 def foglalas_bekeres(szekek):
     foglalt_szek = int(input('Hányadik széket szeretnéd lefoglalni? [1-8]: '))
 
-    while not (1 <= foglalt_szek <= 8 and szekek[foglalt_szek - 1] == 0):
-        if not (1 <= foglalt_szek <= 8):
-            print("Érvénytelen bevitel, próbáld újra.")
-        elif szekek[foglalt_szek - 1] == 1:
-            print("Ez a szék már foglald. Próbálj meg más széket foglalni.")
+    while not helyes_e(szekek, foglalt_szek):
         foglalt_szek = int(input('Hányadik széket szeretnéd lefoglalni? [1-8]: '))
 
     return foglalt_szek
