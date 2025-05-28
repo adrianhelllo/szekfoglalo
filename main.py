@@ -27,7 +27,7 @@ def helyes_e(szekek, foglalt, oszlop):
     elif szekek[foglalt - 1] == 1:
         print("Ez a szék már foglalt. Próbáld meg más széket foglalni.")
         return False
-    elif (foglalt == 2 and szekek[0] != 1) or (foglalt == 7 and szekek[7] != 1):
+    elif (foglalt == 2 and szekek[0] != 1) or (foglalt == 7 and szekek[SZEKEK_SZAMA - 1] != 1):
         print("A szélső két széket nem hagyhatod szabadon. Kérlek próbálj meg ennek megfelelően foglalni.")
     else:
         return True
