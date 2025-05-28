@@ -28,16 +28,26 @@ def foglalas_feldolgozas(szekek, foglalt):
 
     return szekek_foglalassal
 
-
-
 def main():
     szekek_lista = [0 for _ in range(SZEKEK_SZAMA)]
 
     udvozlo_uzenet(szekek_lista)
+    
     szekek_kiiras(szekek_lista)
     foglalt_szek = foglalas_bekeres()
     szekek_lista = foglalas_feldolgozas(szekek_lista, foglalt_szek)
     print(f"Rendben, lefoglaltuk neked a {foglalt_szek}. széket.")
     szekek_kiiras(szekek_lista)
 
+    uj_foglalas = input("Szeretnél mégegy széket foglalni? [i ; n]: ")
+
+    while uj_foglalas == 'i':
+        foglalt_szek = foglalas_bekeres()
+        szekek_lista = foglalas_feldolgozas(szekek_lista, foglalt_szek)
+        print(f"Rendben, lefoglaltuk neked a {foglalt_szek}. széket.")
+        szekek_kiiras(szekek_lista)
+        uj_foglalas = input("Szeretnél mégegy széket foglalni? [i ; n]: ")
+
 main()
+
+# szünet
